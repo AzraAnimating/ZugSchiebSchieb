@@ -1,5 +1,4 @@
 
-
 /**
 *Text genereted by Simple GUI Extension for BlueJ
 */
@@ -57,6 +56,10 @@ public class GUI_project extends JFrame {
             public void actionPerformed(ActionEvent e)
             {
                 kController.addWaggon(Integer.parseInt(jtSummonWaggon.getText()));
+                String previousText = jtfGleis1.getText();
+                String newText = "Waggon " + jtSummonWaggon.getText() + "\n" + previousText;
+                jtfGleis1.setText("");
+                jtfGleis1.setText(newText + "\n");
                 jtSummonWaggon.setText("");
             }
           } 
@@ -241,51 +244,76 @@ public class GUI_project extends JFrame {
     
     public void addToGleis(int pGleisnummer, int pWaggonnummer)
     {
+        String previousText;
+        String newText;
         switch(pGleisnummer)
         {
            case 1:
-               jtfGleis1.append("Waggon " + pWaggonnummer + "\n");
-               break;
+                previousText = jtfGleis1.getText();
+                System.out.println(previousText);
+                //Die Eingabe hinterlässt "wagonnnummer" bidde beheben zukunfts - Tobi
+                if(previousText.equalsIgnoreCase(""))
+                {
+                    newText = "Waggon " + jtSummonWaggon.getText() + "\n";
+                }
+                else
+                {
+                    newText = "Waggon " + jtSummonWaggon.getText() + "\n" + previousText;
+                }
+                jtfGleis1.setText("");
+                jtfGleis1.setText(newText);
+                break;
            case 2:
-               jtfGleis2.append("Waggon " + pWaggonnummer + "\n");
-               break;
+                previousText = jtfGleis2.getText();
+                if(previousText.equalsIgnoreCase(""))
+                {
+                    newText = "Waggon " + jtSummonWaggon.getText() + "\n";
+                }
+                else
+                {
+                    newText = "Waggon " + jtSummonWaggon.getText() + "\n" + previousText;
+                }
+                jtfGleis2.setText("");
+                jtfGleis2.setText(newText);
+                break;
            case 3:
-               jtfGleis3.append("Waggon " + pWaggonnummer + "\n");
-               break;
+                previousText = jtfGleis3.getText();
+                if(previousText.equalsIgnoreCase(""))
+                {
+                    newText = "Waggon " + jtSummonWaggon.getText() + "\n";
+                }
+                else
+                {
+                    newText = "Waggon " + jtSummonWaggon.getText() + "\n" + previousText;
+                }
+                jtfGleis3.setText("");
+                jtfGleis3.setText(newText);
+                break;
            }
     }
-    
+       
     public void removeFromGleis(int pGleisnummer)
     {
-        int amountRows;
-        String previousText[];
+        String previousText;
+        String newText;
         switch(pGleisnummer)
         {
             case 1:
-                previousText = jtfGleis1.getText().split("\n");
+                previousText = jtfGleis1.getText();
                 jtfGleis1.setText("");
-                amountRows = previousText.length;
-                for(int i = 0 ; i < amountRows - 1 ; i++)
-                {
-                    jtfGleis1.append(previousText[i] + "\n");
-                }
+                newText = previousText.substring(0, previousText.indexOf("\n"));
+                System.out.println(previousText.indexOf("\n"));
+                jtfGleis1.setText(newText);
             case 2:
-                previousText = jtfGleis2.getText().split("\n");
+                previousText = jtfGleis2.getText();
                 jtfGleis2.setText("");
-                amountRows = previousText.length;
-                for(int i = 0 ; i < amountRows - 1 ; i++)
-                {
-                    jtfGleis2.append(previousText[i] + "\n");
-                }
+                newText = previousText.substring(0, previousText.indexOf("\n"));
+                jtfGleis2.setText(newText);
             case 3:
-                previousText = jtfGleis3.getText().split("\n");
+                previousText = jtfGleis3.getText();
                 jtfGleis3.setText("");
-                amountRows = previousText.length;
-                for(int i = 0 ; i < amountRows - 1 ; i++)
-                {
-                    jtfGleis3.append(previousText[i] + "\n");
-                }
+                newText = previousText.substring(0, previousText.indexOf("\n"));
+                jtfGleis3.setText(newText);
         }
     }
-
 }
