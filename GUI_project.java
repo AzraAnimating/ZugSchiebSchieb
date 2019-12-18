@@ -242,7 +242,7 @@ public class GUI_project extends JFrame {
         menuBar.add(help);
     }
     
-    public void addToGleis(int pGleisnummer, int pWaggonnummer)
+    public void addToGleis(int pGleisnummer, int pWagonnummer)
     {
         String previousText;
         String newText;
@@ -251,40 +251,81 @@ public class GUI_project extends JFrame {
            case 1:
                 previousText = jtfGleis1.getText();
                 System.out.println(previousText);
-                //Die Eingabe hinterlässt "wagonnnummer" bidde beheben zukunfts - Tobi
-                if(previousText.equalsIgnoreCase(""))
+                if(jtSummonWaggon.getText().equals("Waggonnummer"))
                 {
-                    newText = "Waggon " + jtSummonWaggon.getText() + "\n";
-                }
+                    if(previousText.equalsIgnoreCase(""))
+                    {
+                        newText = "Waggon " + Integer.parseInt(jtSummonWaggon.getText()) + "\n";
+                    }
+                    else
+                    {
+                        newText = "Waggon " + Integer.parseInt(jtSummonWaggon.getText()) + "\n" + previousText;
+                    }
+                } 
                 else
                 {
-                    newText = "Waggon " + jtSummonWaggon.getText() + "\n" + previousText;
+                    if(previousText.equalsIgnoreCase(""))
+                    {
+                        newText = "Waggon " + pWagonnummer + "\n";
+                    }
+                    else
+                    {
+                        newText = "Waggon " + pWagonnummer + "\n" + previousText;
+                    }
                 }
                 jtfGleis1.setText("");
                 jtfGleis1.setText(newText);
                 break;
            case 2:
                 previousText = jtfGleis2.getText();
-                if(previousText.equalsIgnoreCase(""))
+                if(jtSummonWaggon.getText().equals("Waggonnummer"))
                 {
-                    newText = "Waggon " + jtSummonWaggon.getText() + "\n";
-                }
+                    if(previousText.equalsIgnoreCase(""))
+                    {
+                        newText = "Waggon " + Integer.parseInt(jtSummonWaggon.getText()) + "\n";
+                    }
+                    else
+                    {
+                        newText = "Waggon " + Integer.parseInt(jtSummonWaggon.getText()) + "\n" + previousText;
+                    }
+                } 
                 else
                 {
-                    newText = "Waggon " + jtSummonWaggon.getText() + "\n" + previousText;
+                    if(previousText.equalsIgnoreCase(""))
+                    {
+                        newText = "Waggon " + pWagonnummer + "\n";
+                    }
+                    else
+                    {
+                        newText = "Waggon " + pWagonnummer + "\n" + previousText;
+                    }
                 }
                 jtfGleis2.setText("");
                 jtfGleis2.setText(newText);
                 break;
            case 3:
                 previousText = jtfGleis3.getText();
-                if(previousText.equalsIgnoreCase(""))
+                if(jtSummonWaggon.getText().equals("Waggonnummer"))
                 {
-                    newText = "Waggon " + jtSummonWaggon.getText() + "\n";
-                }
+                    if(previousText.equalsIgnoreCase(""))
+                    {
+                        newText = "Waggon " + Integer.parseInt(jtSummonWaggon.getText()) + "\n";
+                    }
+                    else
+                    {
+                        newText = "Waggon " + Integer.parseInt(jtSummonWaggon.getText()) + "\n" + previousText;
+                    }
+                } 
                 else
                 {
-                    newText = "Waggon " + jtSummonWaggon.getText() + "\n" + previousText;
+                    if(previousText.equalsIgnoreCase(""))
+                    {
+                        newText = "Waggon " + pWagonnummer + "\n";
+                    }
+                    else
+                    {
+                        newText = "Waggon " + pWagonnummer + "\n" + previousText;
+                    }
                 }
                 jtfGleis3.setText("");
                 jtfGleis3.setText(newText);
@@ -301,18 +342,18 @@ public class GUI_project extends JFrame {
             case 1:
                 previousText = jtfGleis1.getText();
                 jtfGleis1.setText("");
-                newText = previousText.substring(0, previousText.indexOf("\n"));
-                System.out.println(previousText.indexOf("\n"));
+                newText = previousText.substring(0, previousText.indexOf("\n") + 1);
+                System.out.println(newText);
                 jtfGleis1.setText(newText);
             case 2:
                 previousText = jtfGleis2.getText();
                 jtfGleis2.setText("");
-                newText = previousText.substring(0, previousText.indexOf("\n"));
+                newText = previousText.substring(0, previousText.indexOf("\n") + 1);
                 jtfGleis2.setText(newText);
             case 3:
                 previousText = jtfGleis3.getText();
                 jtfGleis3.setText("");
-                newText = previousText.substring(0, previousText.indexOf("\n"));
+                newText = previousText.substring(0, previousText.indexOf("\n") + 1);
                 jtfGleis3.setText(newText);
         }
     }
